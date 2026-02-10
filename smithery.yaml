@@ -1,0 +1,39 @@
+# Smithery Configuration for EU AI Act Compliance Checker
+name: "@arkforge/mcp-eu-ai-act"
+description: "Automated EU AI Act compliance verification for AI projects"
+version: "1.0.0"
+license: "MIT"
+homepage: "https://github.com/desiorac/mcp-eu-ai-act"
+repository: "https://github.com/desiorac/mcp-eu-ai-act"
+
+# Server configuration
+startCommand:
+  type: stdio
+  configSchema:
+    type: object
+    properties: {}
+  commandFunction: |-
+    (config) => ({ command: "python3", args: ["server.py"] })
+
+# Build configuration  
+build:
+  dockerfile: Dockerfile
+
+categories:
+  - compliance
+  - legal
+  - ai-governance
+  
+keywords:
+  - EU AI Act
+  - compliance
+  - MCP
+  - artificial intelligence
+  - risk assessment
+  - legal
+  - GDPR
+  - transparency
+  
+author:
+  name: ArkForge
+  url: https://arkforge.fr
