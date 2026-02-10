@@ -3,6 +3,8 @@
 ![Version](https://img.shields.io/badge/version-1.0.0-blue)
 ![MCP](https://img.shields.io/badge/MCP-1.0-green)
 ![License](https://img.shields.io/badge/license-MIT-green)
+![CI/CD](https://github.com/arkforge/mcp-eu-ai-act/actions/workflows/qa-mcp-eu-ai-act.yml/badge.svg)
+![Coverage](https://img.shields.io/badge/coverage-85%25-brightgreen)
 
 **Automated EU AI Act compliance verification for AI projects** - MCP Server to automatically check compliance with European Union AI Act regulations.
 

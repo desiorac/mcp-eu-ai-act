@@ -1,6 +1,9 @@
 # EU AI Act Compliance Checker - MCP Server
-# No external dependencies required - uses Python stdlib only
-#
+# Core dependencies - Python stdlib only for runtime
+# Testing dependencies required for CI/CD
+pytest>=7.4.0
+pytest-cov>=4.1.0
+
 # Optional dependencies for advanced features:
 # flask>=2.0.0        # REST API wrapper
 # fastapi>=0.95.0     # Alternative REST API
