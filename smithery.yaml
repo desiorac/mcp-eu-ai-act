@@ -15,7 +15,7 @@ startCommand:
     type: object
     properties: {}
   commandFunction: |-
-    (config) => ({ command: "python3", args: ["server.py"] })
+    (config) => ({ command: "node", args: ["index.js"] })
 
 # Build configuration  
 build:

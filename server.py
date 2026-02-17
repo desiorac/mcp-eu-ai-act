@@ -302,7 +302,9 @@ def create_server():
     """Create and return the EU AI Act Compliance Checker MCP server."""
     mcp = FastMCP(
         name="EU AI Act Compliance Checker",
-        description="Scan projects to detect AI model usage and verify EU AI Act compliance",
+        instructions="Scan projects to detect AI model usage and verify EU AI Act compliance",
+        host="0.0.0.0",
+        port=8089,
     )
 
     @mcp.tool()
@@ -371,5 +373,7 @@ class MCPServer:
 
 
 if __name__ == "__main__":
+    import sys
     server = create_server()
-    server.run()
+    transport = "streamable-http" if "--http" in sys.argv else "stdio"
+    server.run(transport=transport)
