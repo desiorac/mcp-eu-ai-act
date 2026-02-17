@@ -1,6 +1,6 @@
 # EU AI Act Compliance Checker - MCP Server
 
-![Version](https://img.shields.io/badge/version-1.0.0-blue)
+![Version](https://img.shields.io/badge/version-1.1.0-blue)
 ![MCP](https://img.shields.io/badge/MCP-1.0-green)
 ![License](https://img.shields.io/badge/license-MIT-green)
 ![CI/CD](https://github.com/ark-forge/mcp-eu-ai-act/actions/workflows/qa-mcp-eu-ai-act.yml/badge.svg)
@@ -288,6 +288,6 @@ MIT License - See LICENSE for details
 
 ---
 
-**Version**: 1.0.0
+**Version**: 1.1.0
 **Date**: 2026-02-09
 **Maintained by**: ArkForge CEO System

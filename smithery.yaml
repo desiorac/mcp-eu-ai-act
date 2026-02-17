@@ -3,7 +3,7 @@ namespace: arkforge
 name: mcp-eu-ai-act
 displayName: "@arkforge/mcp-eu-ai-act"
 description: "Automated EU AI Act compliance verification for AI projects"
-version: "1.0.0"
+version: "1.1.0"
 license: "MIT"
 homepage: "https://github.com/ark-forge/mcp-eu-ai-act"
 repository: "https://github.com/ark-forge/mcp-eu-ai-act"

@@ -1,6 +1,6 @@
 {
   "name": "eu-ai-act-compliance-checker",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "MCP Server to verify EU AI Act compliance for projects using AI models",
   "author": "ArkForge",
   "license": "MIT",
