@@ -7,9 +7,12 @@ Scans projects to detect AI model usage and verify EU AI Act compliance
 import os
 import re
 import json
+import logging
 from pathlib import Path
 from typing import Dict, List, Any, Optional
 from datetime import datetime, timezone
+
+logger = logging.getLogger(__name__)
 
 # Patterns for detecting AI model usage
 AI_MODEL_PATTERNS = {
@@ -105,7 +108,7 @@ class EUAIActChecker:
 
     def scan_project(self) -> Dict[str, Any]:
         """Scan the project to detect AI model usage"""
-        print(f"Scanning project: {self.project_path}")
+        logger.info("Scanning project: %s", self.project_path)
 
         if not self.project_path.exists():
             return {
@@ -149,7 +152,7 @@ class EUAIActChecker:
                 })
 
         except Exception as e:
-            print(f"Error scanning {file_path}: {e}")
+            logger.warning("Error scanning %s: %s", file_path, e)
 
     def check_compliance(self, risk_category: str = "limited") -> Dict[str, Any]:
         """Check EU AI Act compliance for a given risk category"""

@@ -26,7 +26,7 @@ def main():
     print("\n\n2. SCAN PROJECT")
     print("-" * 60)
     scan_result = server.handle_request("scan_project", {
-        "project_path": "/tmp/test-eu-ai-act"
+        "project_path": "."
     })
     print(f"Files scanned: {scan_result['results']['files_scanned']}")
     print(f"AI files detected: {len(scan_result['results']['ai_files'])}")
@@ -36,7 +36,7 @@ def main():
     print("\n\n3. CHECK COMPLIANCE (Limited Risk)")
     print("-" * 60)
     compliance_result = server.handle_request("check_compliance", {
-        "project_path": "/tmp/test-eu-ai-act",
+        "project_path": ".",
         "risk_category": "limited"
     })
     print(f"Risk Category: {compliance_result['results']['risk_category']}")
@@ -51,7 +51,7 @@ def main():
     print("\n\n4. CHECK COMPLIANCE (High Risk)")
     print("-" * 60)
     high_risk_result = server.handle_request("check_compliance", {
-        "project_path": "/tmp/test-eu-ai-act",
+        "project_path": ".",
         "risk_category": "high"
     })
     print(f"Risk Category: {high_risk_result['results']['risk_category']}")
@@ -66,7 +66,7 @@ def main():
     print("\n\n5. GENERATE FULL REPORT")
     print("-" * 60)
     report = server.handle_request("generate_report", {
-        "project_path": "/tmp/test-eu-ai-act",
+        "project_path": ".",
         "risk_category": "limited"
     })
     print(f"Report Date: {report['results']['report_date']}")
@@ -76,7 +76,7 @@ def main():
         print(f"  {rec}")
 
     # Save the full report
-    report_path = "/tmp/eu-ai-act-report.json"
+    report_path = "eu-ai-act-report.json"
     with open(report_path, 'w') as f:
         json.dump(report['results'], f, indent=2)
     print(f"\nFull report saved to: {report_path}")
