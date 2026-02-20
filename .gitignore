@@ -16,3 +16,6 @@ htmlcov/
 qa-screenshots/
 qa-gate-report.json
 node_modules/
+data/
+api_keys.json
+config/

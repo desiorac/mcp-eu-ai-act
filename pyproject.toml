@@ -11,7 +11,6 @@ license = "MIT"
 requires-python = ">=3.10"
 dependencies = [
     "mcp>=1.14.1",
-    "smithery>=0.2.4",
 ]
 keywords = [
     "EU AI Act",
@@ -26,13 +25,35 @@ Homepage = "https://github.com/ark-forge/mcp-eu-ai-act"
 Repository = "https://github.com/ark-forge/mcp-eu-ai-act"
 Documentation = "https://arkforge.fr/mcp-eu-ai-act.html"
 
-[project.scripts]
-dev = "smithery.cli.dev:main"
-playground = "smithery.cli.playground:main"
-
 [tool.hatch.build.targets.wheel]
 packages = ["."]
 only-include = ["server.py"]
 
-[tool.smithery]
-server = "server:create_server"
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--tb=short -q"
+
+[tool.coverage.run]
+source = ["server.py"]
+omit = [
+    ".venv/*",
+    "venv/*",
+    "node_modules/*",
+    "example_usage.py",
+    "test_json_format.py",
+    "test_server.py",
+    "dist/*",
+    "__pycache__/*",
+    "*/site-packages/*",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+    "pass",
+]
+show_missing = true
+skip_empty = true

@@ -179,7 +179,7 @@ git push origin main
 - Results visible in the "Actions" tab of the repository
 
 ### Step 4: Verify Results
-- **All jobs pass** - Ready for Smithery publication
+- **All jobs pass** - Ready for publication
 - **A job fails** - Fix required before merge
 
 ---
@@ -243,7 +243,7 @@ echo $?  # 0 = success, 1 = coverage too low
 
 ## Pre-Publication Checklist
 
-Before publishing to GitHub/Smithery, verify:
+Before publishing to GitHub, verify:
 
 - [ ] CI/CD pipeline passes on `main`
 - [ ] Coverage >= 70% (ideally >= 80%)
@@ -252,17 +252,6 @@ Before publishing to GitHub/Smithery, verify:
 - [ ] README badges up to date
 - [ ] Complete README documentation
 - [ ] LICENSE present (MIT)
-
----
-
-## Smithery Integration
-
-The CI/CD pipeline will be automatically triggered on:
-1. Push to `main` (release)
-2. Version tag (e.g., `v1.0.0`)
-3. Pull request (verification before merge)
-
-Smithery can display the CI/CD badge on its listing page, reassuring users about the package quality.
 
 ---
 

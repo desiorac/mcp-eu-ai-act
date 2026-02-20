@@ -122,8 +122,8 @@ Uses Claude AI to analyze CVs and score candidates.
         self.assertLess(compliance_pct, 50)
 
         recommendations = report["results"]["recommendations"]
-        self.assertTrue(any("documentation" in r.lower() for r in recommendations))
-        self.assertTrue(any("high-risk" in r.lower() for r in recommendations))
+        self.assertTrue(any("documentation" in str(r).lower() for r in recommendations))
+        self.assertTrue(any(r.get("check") == "eu_database_registration" for r in recommendations))
 
     def test_scenario_multi_framework_project(self):
         """
@@ -310,7 +310,7 @@ def process():
 
         # 1. List tools
         tools = self.server.list_tools()
-        self.assertEqual(len(tools["tools"]), 3)
+        self.assertEqual(len(tools["tools"]), 5)
 
         # 2. Scan
         scan = self.server.handle_request("scan_project", {
@@ -406,13 +406,15 @@ def predict(): pass
 
     def test_scenario_real_world_project_scan(self):
         """
-        Scenario: Scan the MCP EU AI Act server itself
-        - Should detect Python code
-        - Should be a real project
+        Scenario: Scan a realistic project with multiple files
+        - Should detect Python code and AI frameworks
         """
-        mcp_path = str(Path(__file__).parent.parent)
+        (self.project_path / "main.py").write_text("import openai\nfrom anthropic import Anthropic")
+        (self.project_path / "utils.py").write_text("from langchain import LLMChain")
+        (self.project_path / "README.md").write_text("# AI Project using GPT and Claude")
+
         scan_result = self.server.handle_request("scan_project", {
-            "project_path": mcp_path
+            "project_path": str(self.project_path)
         })
 
         self.assertGreater(scan_result["results"]["files_scanned"], 0)
